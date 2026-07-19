@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tradworld</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌍 Tradworld</h1>
+    <p>Traduction multilingue instantanée</p>
+  </header>
+  <main>
+    <section id="translator">
+      <textarea id="inputText" placeholder="Entrez votre texte ici..."></textarea>
+      <div id="langSelector">
+        <select id="sourceLang">
+          <option value="auto">Détection automatique</option>
+          <option value="fr">Français</option>
+          <option value="en">Anglais</option>
+          <option value="es">Espagnol</option>
+          <option value="ar">Arabe</option>
+        </select>
+        <select id="targetLang">
+          <option value="en">Anglais</option>
+          <option value="fr">Français</option>
+          <option value="es">Espagnol</option>
+          <option value="ar">Arabe</option>
+        </select>
+      </div>
+      <button id="translateBtn">Traduire</button>
+      <div id="output"></div>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>
