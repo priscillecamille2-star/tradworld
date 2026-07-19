@@ -1,0 +1,13 @@
+{
+  "name": "tradworld",
+  "version": "1.0.0",
+  "description": "Application de traduction multilingue",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest"
+  },
+  "keywords": ["translation", "multilingual", "nlp"],
+  "license": "MIT"
+}
