@@ -1,4 +1,6 @@
-// Translation service — wraps external API calls
+const deepl = require('deepl-node');
+
+const deeplClient = new deepl.Translator(process.env.DEEPL_API_KEY);
 
 /**
  * Detect language of a given text
@@ -6,19 +8,32 @@
  * @returns {Promise<string>} detected language code
  */
 async function detectLanguage(text) {
-  // TODO: implement detection
-  return "fr";
+  const result = await deeplClient.translateText(text, null, 'en-US');
+  return result.detectedSourceLang;
 }
 
 /**
- * Translate text to target language(s)
+ * Translate text to one or more target languages
  * @param {string} text
- * @param {string} sourceLang
+ * @param {string|null} sourceLang - null for auto-detection
  * @param {string[]} targetLangs
  */
 async function translate(text, sourceLang, targetLangs) {
-  // TODO: connect to DeepL or Google Translate API
-  return targetLangs.map(lang => ({ lang, translation: "" }));
+  const results = await Promise.all(
+    targetLangs.map(async (lang) => {
+      const result = await deeplClient.translateText(
+        text,
+        sourceLang === 'auto' ? null : sourceLang,
+        lang
+      );
+      return {
+        lang,
+        translation: result.text,
+        detectedSourceLang: result.detectedSourceLang
+      };
+    })
+  );
+  return results;
 }
 
 module.exports = { detectLanguage, translate };
