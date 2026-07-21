@@ -61,6 +61,22 @@ L'application sera disponible sur **http://localhost:3000**
 | GET | `/api/history` | Historique des traductions |
 | GET | `/api/glossary` | Glossaire de favoris |
 
+## Déploiement sur Render
+
+Pour déployer cette application sur [Render.com](https://render.com), suis les étapes suivantes :
+
+1. **Créer un compte** sur [render.com](https://render.com) si ce n'est pas déjà fait.
+2. Crée un **Nouveau Web Service** (`New` -> `Web Service`).
+3. Connecte ton dépôt GitHub `priscillecamille2-star/tradworld`.
+4. Configure les paramètres suivants :
+   - **Build Command** : `npm install`
+   - **Start Command** : `npm start`
+5. Ajoute la variable d'environnement requise dans l'onglet **Environment** :
+   - `DEEPL_API_KEY` : Ta clé d'API DeepL.
+6. Clique sur **Deploy** pour lancer le déploiement.
+
+*Note : Un fichier `render.yaml` est déjà présent à la racine du dépôt pour pré-configurer ce service si tu préfères utiliser les Blueprints Render.*
+
 ## Licence
 
 MIT
